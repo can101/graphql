@@ -2,6 +2,7 @@ var express = require('express');
 var { graphqlHTTP } = require('express-graphql');
 var { buildSchema } = require('graphql');
 var axios = require('axios');
+require('dotenv').config();
 
 var Data = [
     {
@@ -65,4 +66,5 @@ app.use('/graphql', graphqlHTTP({
     rootValue: root,
     graphiql: true,
 }));
-app.listen(4000, () => console.log('Now browse to http://localhost:4000/graphql'));
+const port =process.env.PORT;
+app.listen(port, () => console.log(`Now browse to http://localhost:${port}/graphql`));
