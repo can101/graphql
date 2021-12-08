@@ -61,6 +61,9 @@ var root = {
 };
 
 var app = express();
+app.get('/',(req,res)=>{
+    res.json({message:"welcome to the grapql api"});
+})
 app.use('/graphql', graphqlHTTP({
     schema: schema,
     rootValue: root,
