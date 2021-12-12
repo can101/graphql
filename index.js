@@ -2,6 +2,7 @@ var express = require('express');
 var { graphqlHTTP } = require('express-graphql');
 var { buildSchema } = require('graphql');
 var axios = require('axios');
+const cors = require('cors');
 require('dotenv').config();
 
 var Data = [
@@ -61,6 +62,8 @@ var root = {
 };
 
 var app = express();
+
+app.use(cors());
 app.get('/',(req,res)=>{
     res.json({message:"welcome to the grapql api"});
 })
